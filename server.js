@@ -17,3 +17,6 @@ app.use((req,res) => {
 });
 
 //function needed to start server
+config.connect(err => {
+    if (err) throw err;
+});
