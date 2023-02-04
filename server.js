@@ -19,4 +19,8 @@ app.use((req,res) => {
 //function needed to start server
 config.connect(err => {
     if (err) throw err;
+    console.log('successful connection');
+    app.listen(PORT, () => {
+        console.log(`Listening on port ${PORT}`)
+    })
 });

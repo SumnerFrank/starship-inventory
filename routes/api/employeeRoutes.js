@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const config = require('../../config/connection');
 
-//get e,ployees from db
+//get employees from db
 router.get('employee', (req,res) => {
     const sql = `SELECT * FROM employee`;
 });
