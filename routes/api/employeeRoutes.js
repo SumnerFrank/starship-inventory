@@ -5,6 +5,11 @@ const config = require('../../config/connection');
 //get employees from db
 router.get('employee', (req,res) => {
     const sql = `SELECT * FROM employee`;
+    db.query(sql, (err, rows) => {
+        if (err) {
+            res.status(500).json({error: err.message});
+        }
+    })
 });
 
 //add employee to db

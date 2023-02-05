@@ -5,6 +5,11 @@ const config = require('../../config/connection');
 //get roles from db
 router.get('role', (req,res) => {
     const sql = `SELECT * FROM role`;
+    db.query(sql, (err, rows) => {
+        if (err) {
+            res.status(500).json({error: err.message});
+        }
+    })
 });
 
 //add role to db
