@@ -3,7 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const config = require('./config/connection');
 
-// const routes = routes need to be made still 
+// const routes = routes need to be finished
 
 //middleware
 app.use(express.urlencoded({extended: false}));
