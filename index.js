@@ -1,7 +1,6 @@
-const mysql = require('mysql2');
+// const mysql = require('mysql2');
 const inquirer = require('inquirer');
-const config = require('./config/connection');
-const db = require('./config/connection');
+// const db = require('./config/connection');
 
 const startPrompt = () => {
     inquirer.prompt([
@@ -51,11 +50,17 @@ const allDeps = (req) => {
 };
 
 const addDeptPrompt = () => {
-    //asks questions about new department
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the name of this department?'
+        }
+    ]).then(addDept);
 };
 
 const addDept = (body) => {
-    //adds new department to table 
+console.log('fx works')
 };
 
 //EMPLOYEE FUNCTIONS
@@ -72,10 +77,17 @@ const allEmp = (req) => {
 };
 
 const addEmpPrompt = () => {
-    //asks questions about new employee
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the name of the employee?'
+        }
+    ]).then(addEmp);
 };
 
 const addEmp = (body) => {
+    console.log('fx works')
     //adds new employee to table 
 };
 
@@ -97,9 +109,25 @@ const allRoles = (req) => {
 };
 
 const addRolePrompt = () => {
-    //asks questions about new role
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the name of the role?'
+        }
+    ]).then(addEmp);
 };
 
 const addRole = (body) => {
+    console.log('fx works')
     //adds new role to table 
 };
+
+
+
+
+
+
+
+
+startPrompt();
