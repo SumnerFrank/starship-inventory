@@ -10,6 +10,7 @@ const startPrompt = () => {
             message: 'What would you like to do',
             choices: 
             ['View All Roles', 
+            'View All Departments',
             'View All Employees',
             'Add A Department', 
             'Add A Role', 
@@ -17,7 +18,21 @@ const startPrompt = () => {
             'Update Employee Info']
         }
     ]).then(employerData => {
-        // if else statements based on choices to initial prompt
+        if (employerData.options === 'View All Roles') {
+            allRoles();
+        } else if (employerData.options === 'View All Departments') {
+            allDeps();
+        } else if (employerData.options === 'View All Employees') {
+            allEmp();
+        } else if (employerData.options === 'Add A Department') {
+            addDeptPrompt();
+        } else if (employerData.options === 'Add A Role') {
+            addRolePrompt();
+        } else if (employerData.options === 'Add A New Employee') {
+            addEmpPrompt();
+        } else if (employerData.options === 'Update Employee Info') {
+            
+        }
     });
 };
 
