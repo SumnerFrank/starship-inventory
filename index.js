@@ -11,7 +11,13 @@ const startPrompt = () => {
             type: 'list',
             name: 'options', 
             message: 'What would you like to do',
-            choices: ['', '', '', '', '', '', '', '']
+            choices: 
+            ['View All Roles', 
+            'View All Employees',
+            'Add A Department', 
+            'Add A Role', 
+            'Add A New Employee', 
+            'Update Employee Info']
         }
     ]).then(employerData => {
         // if else statements based on choices to initial prompt
