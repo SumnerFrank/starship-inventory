@@ -1,6 +1,7 @@
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
-const config = require('./config/connection')
+const config = require('./config/connection');
+const db = require('./config/connection');
 
 const startPrompt = () => {
     inquirer.prompt([
@@ -38,7 +39,15 @@ const startPrompt = () => {
 
 //DEPARTMENT FUNCTIONS
 const allDeps = (req) => {
-    //reqest all info from departments 
+    const sql = `SELECT * FROM department`;
+    db.query(sql, (err, rows) => {
+        if (err) {
+            res.status(500).json({error: err.message});
+            return;
+        }
+        console.table(rows);
+        startPrompt();
+    })
 };
 
 const addDeptPrompt = () => {
@@ -51,7 +60,15 @@ const addDept = (body) => {
 
 //EMPLOYEE FUNCTIONS
 const allEmp = (req) => {
-    //reqest all info from employee 
+    const sql = `SELECT * FROM employee`;
+    db.query(sql, (err, rows) => {
+        if (err) {
+            res.status(500).json({error: err.message});
+            return;
+        }
+        console.table(rows);
+        startPrompt();
+    });
 };
 
 const addEmpPrompt = () => {
@@ -62,9 +79,21 @@ const addEmp = (body) => {
     //adds new employee to table 
 };
 
+const updateEmp = () => {
+
+};
+
 //ROLE FUNCTIONS
 const allRoles = (req) => {
-    //reqest all info from role 
+    const sql = `SELECT * FROM role`;
+    db.query(sql, (err, rows) => {
+        if (err) {
+            res.status(500).json({error: err.message});
+            return;
+        }
+        console.table(rows);
+        startPrompt();
+    });
 };
 
 const addRolePrompt = () => {
