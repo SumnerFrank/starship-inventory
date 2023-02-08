@@ -54,13 +54,32 @@ const addDeptPrompt = () => {
         {
             type: 'input',
             name: 'name',
-            message: 'What is the name of this department?'
+            message: 'What is the name of this department?',
+            validate: (nameInput) => {
+                if (nameInput) {
+                    true;
+                } else {
+                    console.log('Please enter a name.');
+                    false;
+                }
+            }
         }
     ]).then(addDept);
 };
 
 const addDept = (body) => {
-console.log('fx works')
+    console.log('fx works');
+    const sql = 'INSERT INTO department (name) VALUES (?)';
+    const params = [body.name];
+
+    db.query(sql, params, (err, results) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.table(results);
+        startPrompt();
+    })
 };
 
 //EMPLOYEE FUNCTIONS
