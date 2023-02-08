@@ -4,9 +4,6 @@ const config = require('./config/connection')
 
 const startPrompt = () => {
     inquirer.prompt([
-        // {initial prompt, directory?}
-        // would want to view/add departments, roles, and employees
-
         {
             type: 'list',
             name: 'options', 
@@ -24,3 +21,41 @@ const startPrompt = () => {
     });
 };
 
+//DEPARTMENT FUNCTIONS
+const allDeps = (req) => {
+    //reqest all info from departments 
+};
+
+const addDeptPrompt = () => {
+    //asks questions about new department
+};
+
+const addDept = (body) => {
+    //adds new department to table 
+};
+
+//EMPLOYEE FUNCTIONS
+const allEmp = (req) => {
+    //reqest all info from employee 
+};
+
+const addEmpPrompt = () => {
+    //asks questions about new employee
+};
+
+const addEmp = (body) => {
+    //adds new employee to table 
+};
+
+//ROLE FUNCTIONS
+const allRoles = (req) => {
+    //reqest all info from role 
+};
+
+const addRolePrompt = () => {
+    //asks questions about new role
+};
+
+const addRole = (body) => {
+    //adds new role to table 
+};
