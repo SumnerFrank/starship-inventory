@@ -15,10 +15,13 @@ INSERT INTO employee (first_name, last_name, role_id, manager_id)
     ('Jon', 'Snow', 5, 3),    
     ('Arya', 'Stark', 6, 3),
     ('Tormund', 'Giantsbane', 4, 2),
-    ('Three-Eyed', 'Raven', 12, 4),
+    ('Brandon', 'Stark', 12, 4),
     ('Petyr', 'Baelish', 1, 1),    
     ('Tyrion', 'Lannister', 11, 4),
-    ('Khal', 'Drogo', 2, 1);
+    ('Khal', 'Drogo', 2, 1),
+    ('Sansa', 'Stark', 9, 4),
+    ('Butcher', 'Sboy', 7, 3),
+    ('Aegon', 'Targaryen', 8, 3);
 
 INSERT INTO role (title, salary, department_id)
 VALUES

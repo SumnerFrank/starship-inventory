@@ -57,7 +57,7 @@ const addDeptPrompt = () => {
             message: 'What is the name of this department?',
             validate: (nameInput) => {
                 if (nameInput) {
-                    true;
+                   return true;
                 } else {
                     console.log('Please enter a department name.');
                     false;
