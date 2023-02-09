@@ -221,7 +221,7 @@ const addEmpPrompt = () => {
 };
 
 const addEmp = (body) => {
-    console.log('fx works')
+    // console.log('Hello World')
     const sql = `INSERT INTO employee (first_name, last_name, roles_id, manager_id) VALUES (?,?,?,?)`; 
     const params = [body.first_name, body.first_name, body.roles, body.manager];
 
@@ -235,9 +235,9 @@ const addEmp = (body) => {
     })
 };
 
-const updateEmp = () => {
+// const updateEmp = () => {
 
-};
+// };
 
 //ROLE FUNCTIONS
 const allRoles = (req) => {
