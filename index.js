@@ -55,14 +55,6 @@ const addDeptPrompt = () => {
             type: 'input',
             name: 'name',
             message: 'What is the name of this department?',
-            validate: (nameInput) => {
-                if (nameInput) {
-                   return true;
-                } else {
-                    console.log('Please enter a department name.');
-                    false;
-                }
-            }
         }
     ]).then(addDept);
 };
@@ -101,27 +93,11 @@ const addEmpPrompt = () => {
             type: 'input',
             name: 'first_name',
             message: 'What is the first name of the employee?',
-            validate: fnInput => {
-                if (fnInput) {
-                    true;
-                } else {
-                    console.log('Please enter their first name')
-                    false;
-                }
-            }
         },
         {
             type: 'input',
             name: 'last_name',
             message: 'What is the last name of the employee?',
-            validate: lnInput => {
-                if (lnInput) {
-                    true;
-                } else {
-                    console.log('Please enter their first name')
-                    false;
-                }
-            }
         },
         {
             type: 'list',
@@ -223,7 +199,7 @@ const addEmpPrompt = () => {
 const addEmp = (body) => {
     // console.log('Hello World')
     const sql = `INSERT INTO employee (first_name, last_name, roles_id, manager_id) VALUES (?,?,?,?)`; 
-    const params = [body.first_name, body.first_name, body.roles, body.manager];
+    const params = [body.first_name, body.last_name, body.roles, body.manager];
 
     db.query(sql, params, (err, results) => {
         if (err) {
@@ -258,27 +234,11 @@ const addRolePrompt = () => {
             type: 'input',
             name: 'title',
             message: 'What is the name of the role?',
-            validate: titleInput => {
-                if (titleInput) {
-                    true;
-                } else {
-                    console.log('Pleas enter a role')
-                    false;
-                }
-            }
         },
         {
             type: 'input',
             name: 'salary',
             message: 'What is the salary of the role?',
-            validate: salaryInput => {
-                if (salaryInput) {
-                    true;
-                } else {
-                    console.log('Pleas enter a number')
-                    false;
-                }
-            }
         },
         {
             type: 'list',
