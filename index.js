@@ -189,12 +189,20 @@ const addRolePrompt = () => {
                 }
             ]
         }
-    ]).then(addEmp);
+    ]).then(addRole);
 };
 
 const addRole = (body) => {
-    console.log('fx works')
-    //adds new role to table 
+    // console.log('Hello world')
+    const sql = `INSERT INTO role (title, salary, department_id) VALUES (?,?,?)`;
+    const params = [body.title, body.salary, body.department_id];
+    db.query(sql, params, (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        console.table(result);
+        startPrompt();
+    })
 };
 
 
