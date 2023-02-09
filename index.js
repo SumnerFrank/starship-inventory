@@ -195,6 +195,28 @@ const addEmpPrompt = () => {
                 }
             ]
         },
+        {
+            type: 'list',
+            name: 'manager',
+            message: 'Whose team are they on (select manager)',
+            choices: 
+            [
+                {
+                    name: 'Eddard Stark',
+                    value: 1
+                }, 
+                {
+                    name: 'Robert Baratheon',
+                    value: 2
+                }, {
+                    name: 'Cersei Lannister',
+                    value: 3
+                }, {
+                    name: 'Daenerys Targaryen',
+                    value: 4
+                }
+            ]
+        }
     ]).then(addEmp);
 };
 
