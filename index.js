@@ -59,7 +59,7 @@ const addDeptPrompt = () => {
                 if (nameInput) {
                     true;
                 } else {
-                    console.log('Please enter a name.');
+                    console.log('Please enter a department name.');
                     false;
                 }
             }
@@ -99,9 +99,102 @@ const addEmpPrompt = () => {
     inquirer.prompt([
         {
             type: 'input',
-            name: 'name',
-            message: 'What is the name of the employee?'
-        }
+            name: 'first_name',
+            message: 'What is the first name of the employee?',
+            validate: fnInput => {
+                if (fnInput) {
+                    true;
+                } else {
+                    console.log('Please enter their first name')
+                    false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'last_name',
+            message: 'What is the last name of the employee?',
+            validate: lnInput => {
+                if (lnInput) {
+                    true;
+                } else {
+                    console.log('Please enter their first name')
+                    false;
+                }
+            }
+        },
+        {
+            type: 'list',
+            name: 'role',
+            message: 'What is the role of the employee?',
+            choices: 
+            [
+                {
+                    name: 'Recruiter',
+                    value: 1
+                },
+                {
+                    name: 'Resource Coordinator',
+                    value: 2
+                },
+                {
+                    name: 'Front Desk',
+                    value: 3
+                },
+                {
+                    name: 'Cyber Security',
+                    value: 4
+                },
+                {
+                    name: 'Junior Developer',
+                    value: 5
+                },
+                {
+                    name: 'Senior Developer',
+                    value: 6
+                },
+                {
+                    name: 'Staff Developer',
+                    value: 7
+                },
+                {
+                    name: 'Data Analyst',
+                    value: 8
+                },
+                {
+                    name: 'Copywriter',
+                    value: 9
+                },
+                {
+                    name: 'Pricing Adjuster',
+                    value: 10
+                },
+                {
+                    name: 'Sales Lead',
+                    value: 11
+                },
+                {
+                    name: 'Marketing Lead',
+                    value: 12
+                },
+                {
+                    name: 'HR Manager',
+                    value: 13
+                },
+                {
+                    name: 'Security Manager',
+                    value: 14
+                },
+                {
+                    name: 'Engineering Manager',
+                    value: 15
+                },
+                {
+                    name: 'Sales Manager',
+                    value: 16
+                }
+            ]
+        },
     ]).then(addEmp);
 };
 
