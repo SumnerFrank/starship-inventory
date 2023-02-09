@@ -1,4 +1,4 @@
-// const mysql = require('mysql2');
+const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const db = require('./config/connection');
 
@@ -68,7 +68,7 @@ const addDeptPrompt = () => {
 };
 
 const addDept = (body) => {
-    console.log('fx works');
+    // console.log('hello world');
     const sql = `INSERT INTO department (name) VALUES (?)`;
     const params = [body.name];
 
@@ -141,8 +141,53 @@ const addRolePrompt = () => {
     inquirer.prompt([
         {
             type: 'input',
-            name: 'name',
-            message: 'What is the name of the role?'
+            name: 'title',
+            message: 'What is the name of the role?',
+            validate: titleInput => {
+                if (titleInput) {
+                    true;
+                } else {
+                    console.log('Pleas enter a role')
+                    false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'salary',
+            message: 'What is the salary of the role?',
+            validate: salaryInput => {
+                if (salaryInput) {
+                    true;
+                } else {
+                    console.log('Pleas enter a number')
+                    false;
+                }
+            }
+        },
+        {
+            type: 'list',
+            name: 'department',
+            message: 'Which department does this role belong to?',
+            choices: 
+            [
+                {
+                    name: 'Human Resources',
+                    value: 1
+                },
+                {
+                    name: 'Security',
+                    value: 2
+                },
+                {
+                    name: 'Engineering',
+                    value: 3
+                },
+                {
+                    name: 'Sales',
+                    value: 4
+                }
+            ]
         }
     ]).then(addEmp);
 };
