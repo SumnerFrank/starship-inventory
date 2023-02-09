@@ -2,14 +2,13 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const config = require('./config/connection');
-
-// const routes = routes need to be finished
+const apiRoutes = require('./routes/api');
 
 //middleware
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-// app.use('/api', routes)
+app.use('/api', apiRoutes);
 
 //404 response
 app.use((req,res) => {
