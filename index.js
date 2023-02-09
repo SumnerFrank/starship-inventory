@@ -69,7 +69,7 @@ const addDeptPrompt = () => {
 
 const addDept = (body) => {
     console.log('fx works');
-    const sql = 'INSERT INTO department (name) VALUES (?)';
+    const sql = `INSERT INTO department (name) VALUES (?)`;
     const params = [body.name];
 
     db.query(sql, params, (err, results) => {
@@ -107,7 +107,17 @@ const addEmpPrompt = () => {
 
 const addEmp = (body) => {
     console.log('fx works')
-    //adds new employee to table 
+    const sql = `INSERT INTO employee (first_name, last_name, roles_id, manager_id) VALUES (?,?,?,?)`; 
+    const params = [body.first_name, body.first_name, body.roles_id, body.manager_id];
+
+    db.query(sql, params, (err, results) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.table(results);
+        startPrompt();
+    })
 };
 
 const updateEmp = () => {
