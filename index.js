@@ -1,6 +1,6 @@
 // const mysql = require('mysql2');
 const inquirer = require('inquirer');
-// const db = require('./config/connection');
+const db = require('./config/connection');
 
 const startPrompt = () => {
     inquirer.prompt([
@@ -108,7 +108,7 @@ const addEmpPrompt = () => {
 const addEmp = (body) => {
     console.log('fx works')
     const sql = `INSERT INTO employee (first_name, last_name, roles_id, manager_id) VALUES (?,?,?,?)`; 
-    const params = [body.first_name, body.first_name, body.roles_id, body.manager_id];
+    const params = [body.first_name, body.first_name, body.roles, body.manager];
 
     db.query(sql, params, (err, results) => {
         if (err) {
