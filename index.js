@@ -198,8 +198,8 @@ const addEmpPrompt = () => {
 
 const addEmp = (body) => {
     // console.log('Hello World')
-    const sql = `INSERT INTO employee (first_name, last_name, roles_id, manager_id) VALUES (?,?,?,?)`; 
-    const params = [body.first_name, body.last_name, body.roles, body.manager];
+    const sql = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)`; 
+    const params = [body.first_name, body.last_name, body.role, body.manager];
 
     db.query(sql, params, (err, results) => {
         if (err) {
