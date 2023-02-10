@@ -25,3 +25,4 @@ THEN I am prompted to enter the employee’s first name, last name, role, and ma
 WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 
+[Untitled_ Feb 10, 2023 9_07 AM.webm](https://user-images.githubusercontent.com/115412068/218112208-51bd6981-7328-479c-b65c-70901ecdd0aa.webm)
